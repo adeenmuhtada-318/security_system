@@ -1,0 +1,285 @@
+/* recruitment.css — styles specific to the Recruitment Portal */
+
+/* Filter tab bar */
+.FilterTabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.FilterTab {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ColorTextSecondary);
+    background: var(--ColorPanel);
+    border: 1px solid var(--ColorBorder);
+    transition: var(--TransitionFast);
+    cursor: pointer;
+}
+
+.FilterTab:hover {
+    color: var(--ColorTextPrimary);
+    border-color: var(--ColorAccentGold);
+}
+
+.FilterTab.active {
+    background: var(--ColorAccentGold);
+    color: #0B0F19;
+    border-color: var(--ColorAccentGold);
+    font-weight: 600;
+}
+
+/* Status badges */
+.StatusBadge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.StatusBadge--pending {
+    background: rgba(255, 152, 0, 0.15);
+    color: var(--ColorAccentGold);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.StatusBadge--shortlisted {
+    background: rgba(91, 127, 149, 0.15);
+    color: var(--ColorAccentBlue);
+    border: 1px solid rgba(91, 127, 149, 0.3);
+}
+
+.StatusBadge--hired {
+    background: rgba(76, 175, 80, 0.15);
+    color: var(--ColorSuccess);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.StatusBadge--rejected {
+    background: rgba(244, 67, 54, 0.1);
+    color: var(--ColorDanger);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+/* Action buttons in table */
+.ActionCell {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.BtnIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--RadiusSmall);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background: var(--ColorPanel);
+    border: 1px solid var(--ColorBorder);
+    transition: var(--TransitionFast);
+}
+
+.BtnIcon:hover {
+    transform: translateY(-1px);
+}
+
+.BtnView:hover  { border-color: var(--ColorAccentBlue); }
+.BtnEdit:hover  { border-color: var(--ColorAccentGold); }
+.BtnHire:hover  { border-color: var(--ColorSuccess); }
+.BtnDelete:hover { border-color: var(--ColorDanger); }
+
+/* Modals */
+.ModalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.Modal {
+    background: var(--ColorSurface);
+    border: 1px solid var(--ColorBorder);
+    border-radius: var(--RadiusCard);
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--ShadowCard);
+    animation: slideUp 0.25s ease;
+}
+
+.ModalSmall {
+    max-width: 440px;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.ModalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--ColorBorder);
+}
+
+.ModalTitle {
+    font-family: var(--FontDisplay);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ColorTextPrimary);
+}
+
+.ModalClose {
+    width: 30px;
+    height: 30px;
+    background: var(--ColorPanel);
+    border: 1px solid var(--ColorBorder);
+    border-radius: 6px;
+    color: var(--ColorTextSecondary);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--TransitionFast);
+}
+
+.ModalClose:hover {
+    color: var(--ColorDanger);
+    border-color: var(--ColorDanger);
+}
+
+.ModalBody {
+    padding: 20px 24px;
+}
+
+.ModalForm {
+    padding: 20px 24px;
+}
+
+.ModalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--ColorBorder);
+    margin-top: 16px;
+}
+
+/* Form layout inside modal */
+.FormGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.FormGroupFull {
+    grid-column: 1 / -1;
+}
+
+.FormGroup label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ColorTextSecondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.FormGroup input,
+.FormGroup select,
+.FormGroup textarea {
+    width: 100%;
+    background: var(--ColorBackground);
+    border: 1px solid var(--ColorBorder);
+    border-radius: var(--RadiusSmall);
+    color: var(--ColorTextPrimary);
+    padding: 8px 12px;
+    font-size: 13px;
+    transition: var(--TransitionFast);
+}
+
+.FormGroup input:focus,
+.FormGroup select:focus,
+.FormGroup textarea:focus {
+    border-color: var(--ColorAccentGold);
+}
+
+.FormGroup textarea {
+    resize: vertical;
+}
+
+/* Button variants */
+.BtnHireConfirm {
+    padding: 8px 20px;
+    background: var(--ColorSuccess);
+    color: #fff;
+    border: none;
+    border-radius: var(--RadiusSmall);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--TransitionFast);
+}
+
+.BtnHireConfirm:hover {
+    opacity: 0.9;
+}
+
+.BtnDanger {
+    padding: 8px 20px;
+    background: var(--ColorDanger);
+    color: #fff;
+    border: none;
+    border-radius: var(--RadiusSmall);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--TransitionFast);
+}
+
+.BtnDanger:hover {
+    opacity: 0.9;
+}
+
+/* Detail view inside ViewModal */
+.DetailGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.DetailItem label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ColorTextMuted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.DetailItem span {
+    font-size: 14px;
+    color: var(--ColorTextPrimary);
+}
+
+.DetailItemFull {
+    grid-column: 1 / -1;
+}
